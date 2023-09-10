@@ -4,7 +4,7 @@ import b from "../assets/b.png";
 
 const Card = () => {
   return (
-    <div className="ms-0 mb-0 max-w-sm shadow-lg  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="ms-0 mb-0 max-w-xs shadow-lg  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <img className="rounded-t-lg" src={b} alt="book img" />
 
       <div className="p-5">
