@@ -55,7 +55,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/"
-                className="block py-2 pl-3 pr-4 text-whiterounded md:bg-transparent md:p-0 dark:text-white  hover:bg-blue-100 md:hover:bg-transparent"
+                className="block py-2 pl-3 pr-4 text-whiterounded md:bg-transparent md:p-0  hover:bg-blue-100 dark:text-white  hover:bg-blue-100 md:hover:bg-transparent"
                 aria-current="page"
               >
                 Home
