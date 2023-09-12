@@ -4,9 +4,13 @@ import logo from "../../public/a.jpg";
 import b from "../assets/b.png";
 import { useState } from "react";
 import "../styles/navbar.css";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { toastSuccessNotify } from "../helper/Toastify";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const{user,setUser}=useContext(AuthContext)
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -70,12 +74,22 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link
+            {  user.password && user.email?(<Link
+              onClick={()=>{
+                toastSuccessNotify("Logout Succes")
+                setUser({ email: "", password: "" })}
+             
+              }
+                to="/"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-blue-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              >
+                Logout
+              </Link>) :(  <Link
                 to="login"
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-blue-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Login
-              </Link>
+              </Link>)}
             </li>
             <li>
               <Link
