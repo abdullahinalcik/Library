@@ -1,6 +1,6 @@
 import React from 'react'
 import register from"../assets/register.jpg"
-import "../styles/register.css"
+
 
 const Register = () => {
   return (
