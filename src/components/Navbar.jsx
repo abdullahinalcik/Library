@@ -6,7 +6,7 @@ import { useState } from "react";
 import "../styles/navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { toastSuccessNotify } from "../helper/Toastify";
+import { toastErrorNotify, toastSuccessNotify } from "../helper/Toastify";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,7 +25,7 @@ const Navbar = () => {
         <button
           onClick={() => {
             setMenuOpen(!menuOpen);
-            console.log(menuOpen);
+            // console.log(menuOpen);
           }}
           // data-collapse-toggle="navbar-default"
           // type="button"
@@ -67,6 +67,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
+               onClick={()=>{  !(user.password && user.email)&&toastErrorNotify("Please Login")} }
                 to="/about"
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-blue-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >

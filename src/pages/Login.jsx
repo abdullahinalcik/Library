@@ -15,10 +15,14 @@ const Login = () => {
   // console.log(password);
   const navigate=useNavigate()
   const{ user,setUser}=useContext(AuthContext)
-  console.log(user);
+  // console.log(user);
+  const [email,SetEmail]=useState("")
+  const [password,SetPassword]=useState("")
+
 
   const handleSubmit=(e)=>{
     e.preventDefault()
+    setUser({...user,password:password,email:email})
     toastSuccessNotify("Login Succes")
     navigate("/")
 
@@ -47,7 +51,7 @@ const Login = () => {
               id="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Enter email"
-              onChange={(e)=>setUser({...user,email:e.target.value})}
+              onChange={(e)=>SetEmail(e.target.value)}
               required
             />
           </div>
@@ -64,7 +68,7 @@ const Login = () => {
               id="password"
               placeholder="Enter password"
               className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              onChange={(e)=>setUser({...user,password:e.target.value})}
+              onChange={(e)=>SetPassword(e.target.value)}
               required
             />
           </div>
